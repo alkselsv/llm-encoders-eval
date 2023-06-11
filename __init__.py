@@ -1,1 +1,1 @@
-from module import Encoder
+from .module import Encoder

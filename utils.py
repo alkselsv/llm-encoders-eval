@@ -48,7 +48,7 @@ def embed_bert_both(text, model, tokenizer, max_length=128):
     mean_emb = mean_pooling(model_output, t['attention_mask'])
     mean_emb_norm = torch.nn.functional.normalize(mean_emb)
 
-    return np.concatenate((cls_emb[0].cpu().numpy(), mean_emb[0].cpu().numpy()))
+    return np.concatenate((cls_emb[0].cpu().numpy() + mean_emb[0].cpu().numpy())/2)
 
 
 def find_most_similar_vector_indices(vector_array):
